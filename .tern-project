@@ -1,0 +1,12 @@
+{
+  "libs": [
+    "browser",
+    "jquery"
+  ],
+  "plugins": {
+    "node": {
+      "baseURL": "./",
+      "paths":{}
+      }
+  }
+}
