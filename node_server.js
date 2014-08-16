@@ -17,8 +17,12 @@ function httpHandler(req, res) {
         case 'GET':
             console.log("get");
             console.log(__dirname);
-            send(req, url.parse(req.url).pathname, {root: __dirname})
-                .pipe(res);
+            path = url.parse(req.url).pathname
+            // nodejs automatically servers index.html
+            if (path != null){
+                send(req, path, {root: __dirname})
+                    .pipe(res);
+            }
             return;
 
     }

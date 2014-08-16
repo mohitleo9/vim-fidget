@@ -1,0 +1,9 @@
+{
+  "name": "vim-fidget",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-nodemon": "^0.3.0"
+  }
+}
