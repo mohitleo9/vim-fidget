@@ -18,15 +18,20 @@ function httpHandler(req, res) {
             console.log(__dirname);
             path = url.parse(req.url).pathname;
             // nodejs automatically servers index.html
-            if (path !== null){
-                send(req, path, {root: __dirname})
-                    .pipe(res);
-            }
-            res.end();
+            if (path === null) { path = 'index.html';  }
+            send(req, path, {root: __dirname})
+                .pipe(res);
             return;
         case 'POST':
             console.log("post req");
             io.emit('reload', 'reload');
+            res.write('ok');
+            res.end();
+            return;
+
+        case 'PUT':
+            console.log("PUT");
+            spawn('open', ['http://localhost:8090/index.html']);
             res.write('ok');
             res.end();
             return;
