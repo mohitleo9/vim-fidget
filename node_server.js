@@ -22,6 +22,7 @@ function httpHandler(req, res) {
                 send(req, path, {root: __dirname})
                     .pipe(res);
             }
+            res.end();
             return;
         case 'POST':
             console.log("post req");
