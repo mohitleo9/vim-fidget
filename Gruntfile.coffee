@@ -4,6 +4,10 @@ module.exports = (grunt) ->
             reTest:
                 files: ['*.sh']
                 tasks: ['shell:testCurl']
+            browserTest:
+                files: ['**/*client.js']
+                options:
+                    livereload: true
         nodemon:
             dev:
                 script: 'node_server.js'

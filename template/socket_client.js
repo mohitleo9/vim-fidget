@@ -3,18 +3,18 @@
     var socket = new io();
 
     socket.on('reload', function(msg){
-        location.reload();
+        // location.reload();
         alert(msg);
     });
 
     socket.on('cssReload', function(msg){
         cssLinks = document.getElementsByTagName('link');
+        console.log(cssLinks.length);
 
         for(var i=0; i < cssLinks.length; i++ ){
-            var link = links[i];
-            if(link.rel=='stylesheet' && link.href.indexOf(msg) > -1){
+            if(cssLinks[i].rel=='stylesheet' && cssLinks[i].href.indexOf(msg) > -1){
                 d = new Date();
-                link.href.replace(/(\?.*)$/,'?asdf='+d.time());
+                cssLinks[i].href = cssLinks[i].href.replace(/\?.*|$/,'?v= '+ d.getTime() )
             }
         }
 

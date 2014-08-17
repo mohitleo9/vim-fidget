@@ -18,6 +18,7 @@ function httpHandler(req, res) {
             console.log("get");
             console.log(__dirname);
             path = url.parse(req.url).pathname;
+            console.log(path);
             // nodejs automatically servers index.html
             if (path === null) { path = 'index.html';  }
             send(req, path, {root: __dirname})
@@ -29,10 +30,16 @@ function httpHandler(req, res) {
                 postData += chunck.toString();
             });
             req.on('end', function () {
-                postDataNew = querystring.parse(postData);
-                console.log(postDataNew);
+                postData = querystring.parse(postData);
                 console.log("post req");
-                io.emit('reload', 'reload');
+
+                if(postData.action === 'cssReload'){
+                    console.log(postData.name);
+                    io.emit('cssReload', postData.name);
+                }
+                else {
+                    io.emit('reload', 'reload');
+                }
                 res.write('ok');
                 res.end();
             });
