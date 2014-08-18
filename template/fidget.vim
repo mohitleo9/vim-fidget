@@ -4,6 +4,11 @@ if !exists('g:fidget_slow')
     let g:fidget_slow = 0
 endif
 
+
+if !exists('g:fidget_autostart')
+    let g:fidget_autostart = 0
+endif
+
 if !exists('g:fidget_slow')
     let g:fidget_slow = 1
 endif
@@ -16,7 +21,7 @@ endfu
 
 
 function! s:reload()
-    echom 'calling'
+    echo 'calling'
     call system("curl -d 'action=reload' http://localhost:8090/ &>/dev/null &")
 endfu
 
@@ -32,10 +37,9 @@ endfu
 
 fu! s:cleanUp()
   call s:killDaemon()
-  au! instant-markdown * <buffer>
+  au! fidget-start_commands *
 endfu
 
-let fidget_autostart = 1
 
 if g:fidget_autostart
     " # Define the autocmds "
@@ -46,5 +50,5 @@ if g:fidget_autostart
         au BufEnter,BufWritePost *index.html call s:reload()
     aug END
 else
-    echom 'asdf'
+    echo 'asdf'
 endif
