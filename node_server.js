@@ -37,19 +37,25 @@ function httpHandler(req, res) {
                     console.log(postData.name);
                     io.emit('cssReload', postData.name);
                 }
-                else {
+
+                if(postData.action === 'reload'){
+                    console.log(postData.name);
                     io.emit('reload', 'reload');
                 }
-                res.write('ok');
-                res.end();
             });
+
+            res.write('ok');
+            res.end();
             return;
 
         case 'PUT':
-            console.log("PUT");
             spawn('open', ['http://localhost:8090/index.html']);
             res.write('ok');
             res.end();
+            return;
+
+        case 'DELETE':
+            process.exit(1);
             return;
     }
 }

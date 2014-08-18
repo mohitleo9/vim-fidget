@@ -1,6 +1,7 @@
 /*jslint anon: true, sloppy: true*/
 /*global $ */
 
-$(function() {
+(function() {
     // My brilliant stuff comes here
-});
+    alert('lkjlkj');
+})();
