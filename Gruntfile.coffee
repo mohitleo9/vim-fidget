@@ -11,6 +11,8 @@ module.exports = (grunt) ->
         nodemon:
             dev:
                 script: 'node_server.js'
+                options:
+                    args: ['/Users/mohitaggarwal/Documents/coolProjects/vim-fiddle']
         shell:
             testCurl:
                 options:

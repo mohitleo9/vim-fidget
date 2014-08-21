@@ -11,17 +11,21 @@ var server = require('http').createServer(httpHandler),
     socket;
 
 server.listen(8090);
+var assetsLocation = process.argv[2];
 
 function httpHandler(req, res) {
     switch(req.method){
         case 'GET':
             console.log("get");
-            console.log(__dirname);
             path = url.parse(req.url).pathname;
             console.log(path);
-            // nodejs automatically servers index.html
-            if (path === null) { path = 'index.html';  }
-            send(req, path, {root: __dirname})
+            // nodejs automatically provide the current assetsLocation path
+            if (path === null || path === '/') {
+                res.write(assetsLocation);
+                res.end();
+                return;
+            }
+            send(req, path, {root: assetsLocation})
                 .pipe(res);
             return;
         case 'POST':

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "node_server.js",
   "bin": {
-    "vim-fidget": "./node_server.js"
+    "vim-fidget": "./fidget.sh"
   },
   "preferGlobal": "true",
   "dependencies": {

@@ -28,10 +28,16 @@ endfu
 function! s:startDaemon()
     call system("vim-fidget &>/dev/null &")
     let g:fidget_files_path = system("curl -s localhost:8090")
+    echom g:fidget_files_path
 endfu
 
 function! s:killDaemon()
     call system("curl -s -X DELETE http://localhost:8090/ &>/dev/null &")
+endfu
+
+
+function! s:openBrowser()
+    call system("curl -s -X PUT http://localhost:8090/ &>/dev/null &")
 endfu
 
 
@@ -46,9 +52,9 @@ fu! s:start_vim_fidget()
     " load the files
     call s:startDaemon()
     tabnew
-    exe 'e '.g:fidget_autostart.'/index.html'
-    exe 'split '.g:fidget_autostart.'/main.js'
-    exe 'vsplit '.g:fidget_autostart.'/main.css'
+    exe 'e '.g:fidget_files_path.'/index.html'
+    exe 'split '.g:fidget_files_path.'/main.js'
+    exe 'vsplit '.g:fidget_files_path.'/main.css'
     " # Define the autocmds "
     aug fidget-start_commands
         au!
@@ -56,6 +62,7 @@ fu! s:start_vim_fidget()
         au BufEnter,BufWritePost *main.js call s:reload()
         au BufEnter,BufWritePost *index.html call s:reload()
     aug END
+    " call s:openBrowser()
 endfu
 
 if g:fidget_autostart
