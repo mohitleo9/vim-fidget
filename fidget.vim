@@ -30,7 +30,7 @@ function! s:startDaemon()
 endfu
 
 function! s:killDaemon()
-    call system("curl -s -X DELETE http://localhost:8090/ &>/dev/null &")
+    call system("curl -s -X DELETE http://localhost:8090/ &>/dev/null")
 endfu
 
 
@@ -59,6 +59,7 @@ fu! s:start_vim_fidget()
         au BufEnter,BufWritePost *main.css call s:reloadCss()
         au BufEnter,BufWritePost *main.js call s:reload()
         au BufEnter,BufWritePost *index.html call s:reload()
+        au BufDelete *index.html call s:cleanUp()
     aug END
     call s:openBrowser()
 endfu
