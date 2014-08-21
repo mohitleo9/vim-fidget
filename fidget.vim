@@ -15,20 +15,18 @@ endif
 
 
 function! s:reloadCss()
-    echom 'calling'
     call system("curl -d 'action=cssReload&name=template/main.css' http://localhost:8090/ &>/dev/null &")
 endfu
 
 
 function! s:reload()
-    echo 'calling'
     call system("curl -d 'action=reload' http://localhost:8090/ &>/dev/null &")
 endfu
 
 function! s:startDaemon()
-    call system("vim-fidget &>/dev/null &")
+    silent call system("vim-fidget")
+    exe 'sleep 1'
     let g:fidget_files_path = system("curl -s localhost:8090")
-    echom g:fidget_files_path
 endfu
 
 function! s:killDaemon()
@@ -62,7 +60,7 @@ fu! s:start_vim_fidget()
         au BufEnter,BufWritePost *main.js call s:reload()
         au BufEnter,BufWritePost *index.html call s:reload()
     aug END
-    " call s:openBrowser()
+    call s:openBrowser()
 endfu
 
 if g:fidget_autostart
