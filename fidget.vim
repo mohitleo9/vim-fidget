@@ -39,7 +39,7 @@ function! s:openBrowser()
 endfu
 
 function! s:createJsFiddle()
-    let s:FiddleUrl = 'http://jsfiddle.net/api/post/library/pure/'
+    call system("open http://localhost:8090/jsFiddle.html &>/dev/null &")
 endfunction
 
 fu! s:cleanUp()
@@ -73,3 +73,4 @@ else
 endif
 
 command! -nargs=0 VimFidget call s:start_vim_fidget()
+command! -nargs=0 VimFidgetBrowse call s:createJsFiddle()

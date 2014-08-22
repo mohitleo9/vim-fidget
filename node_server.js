@@ -26,6 +26,8 @@ function httpHandler(req, res) {
                 console.log(fileName);
                 buf = fs.readFileSync(assetsLocation + "/" + fileName);
                 res.write(buf.toString());
+                res.end();
+                return;
             }
             // nodejs automatically provide the current assetsLocation path
             if (path === null || path === '/') {
