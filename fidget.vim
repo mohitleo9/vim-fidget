@@ -56,9 +56,9 @@ fu! s:start_vim_fidget()
     " # Define the autocmds "
     aug fidget-start_commands
         au!
-        au BufEnter,BufWritePost *main.css call s:reloadCss()
-        au BufEnter,BufWritePost *main.js call s:reload()
-        au BufEnter,BufWritePost *index.html call s:reload()
+        au BufWritePost *main.css call s:reloadCss()
+        au BufWritePost *main.js call s:reload()
+        au BufWritePost *index.html call s:reload()
         au BufDelete *index.html call s:cleanUp()
     aug END
     call s:openBrowser()

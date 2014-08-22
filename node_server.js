@@ -59,6 +59,7 @@ function httpHandler(req, res) {
             return;
 
         case 'DELETE':
+            io.emit('die', 'die');
             process.exit(1);
             return;
     }

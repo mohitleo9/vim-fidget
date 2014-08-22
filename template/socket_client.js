@@ -6,6 +6,16 @@
         location.reload();
     });
 
+    socket.on('die', function(msg) {
+        window.open('', '_self', '');
+        window.close();
+
+        var firefoxWarning =
+        "<h1>Oops!</h1>" +
+        "<h3>Firefox doesn't allow windows to self-close.</h3>" +
+        "<h3>If you want the preview window to close automatically like in other browsers, go to about:config and set dom.allow_scripts_to_close_windows to true.</h3>"
+        document.body.innerHTML = firefoxWarning;
+    });
     socket.on('cssReload', function(msg){
         cssLinks = document.getElementsByTagName('link');
 
