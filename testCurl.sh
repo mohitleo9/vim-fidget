@@ -1,1 +1,1 @@
-curl -d 'action=cssReload&name=template/main.css' localhost:8090/
+curl localhost:8090/read/template/main.js

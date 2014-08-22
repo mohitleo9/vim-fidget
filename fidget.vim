@@ -38,7 +38,9 @@ function! s:openBrowser()
     call system("curl -s -X PUT http://localhost:8090/ &>/dev/null &")
 endfu
 
-
+function! s:createJsFiddle()
+    let s:FiddleUrl = 'http://jsfiddle.net/api/post/library/pure/'
+endfunction
 
 fu! s:cleanUp()
   call s:killDaemon()

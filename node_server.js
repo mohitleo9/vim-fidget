@@ -2,6 +2,7 @@
 
 var server = require('http').createServer(httpHandler),
     spawn = require('child_process').spawn,
+    fs = require('fs'),
     exec = require('child_process').exec,
     io = require('socket.io').listen(server),
     querystring = require('querystring'),
@@ -19,6 +20,13 @@ function httpHandler(req, res) {
             console.log("get");
             path = url.parse(req.url).pathname;
             console.log(path);
+            if (path.indexOf('read/') > -1){
+                // this means stream the contents of the file
+                fileName = path.substring(path.indexOf('read/') + 'read/'.length);
+                console.log(fileName);
+                buf = fs.readFileSync(assetsLocation + "/" + fileName);
+                res.write(buf.toString());
+            }
             // nodejs automatically provide the current assetsLocation path
             if (path === null || path === '/') {
                 res.write(assetsLocation);
@@ -61,6 +69,10 @@ function httpHandler(req, res) {
         case 'DELETE':
             io.emit('die', 'die');
             process.exit(1);
+            return;
+
+        case 'READ':
+            console.log("msg");
             return;
     }
 }
