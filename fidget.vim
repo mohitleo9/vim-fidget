@@ -15,7 +15,7 @@ endif
 
 
 function! s:reloadCss()
-    call system("curl -d 'action=cssReload&name=template/main.css' http://localhost:8090/ &>/dev/null &")
+    call system("curl -d 'action=cssReload&name=main.css' http://localhost:8090/ &>/dev/null &")
 endfu
 
 
