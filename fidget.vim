@@ -35,11 +35,11 @@ endfu
 
 
 function! s:openBrowser()
-    call system("curl -s -X PUT http://localhost:8090/ &>/dev/null &")
+    call system("curl -s -X PUT http://localhost:8090/index.html &>/dev/null &")
 endfu
 
 function! s:createJsFiddle()
-    call system("open http://localhost:8090/jsFiddle.html &>/dev/null &")
+    call system("curl -s -X PUT http://localhost:8090/jsFiddle.html &>/dev/null &")
 endfunction
 
 fu! s:cleanUp()

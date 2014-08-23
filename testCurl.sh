@@ -1,1 +1,1 @@
-curl localhost:8090/read/template/main.js
+curl -X PUT localhost:8090/index.html

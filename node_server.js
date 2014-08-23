@@ -63,7 +63,7 @@ function httpHandler(req, res) {
             return;
 
         case 'PUT':
-            spawn('open', ['http://localhost:8090/index.html']);
+            spawn('open', ['http://localhost:8090' + req.url]);
             res.write('ok');
             res.end();
             return;
