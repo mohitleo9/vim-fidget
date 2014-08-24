@@ -1,5 +1,19 @@
-vim-fidget
+# vim-fidget -jsFiddle for Vim
 
 installation instructions:
 git clone the repo and run npm install -g
 the source the fidget.vim file by :so %
+
+or
+
+    NeoBundle 'mohitleo9/vim-fiddle',{
+            \ 'build' : {
+            \    'unix' : 'npm install -g',
+            \    'mac' : 'npm install -g',
+            \ },
+      \}
+
+
+it adds two commands 
+VimFidget : create a fidget 
+VimFidgetBrowse : upload the fidget to jsfiddle
