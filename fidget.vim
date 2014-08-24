@@ -1,4 +1,7 @@
-
+if (exists("g:vim_fidget_loaded") && g:vim_fidget_loaded)
+  finish
+endif
+let g:vim_fidget_loaded = 1
 " # Configuration
 if !exists('g:fidget_slow')
     let g:fidget_slow = 0
