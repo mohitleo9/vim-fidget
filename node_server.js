@@ -57,6 +57,12 @@ function httpHandler(req, res) {
             return;
 
         case 'PUT':
+            if (process.platform.toLowerCase().indexOf('darwin') >= 0){
+                spawn('open', ['http://localhost:8090' + req.url]);
+            }
+            else {  // assume unix/linux
+                spawn('xdg-open', ['http://localhost:8090' + req.url]);
+            }
             spawn('open', ['http://localhost:8090' + req.url]);
             res.write('ok');
             res.end();
