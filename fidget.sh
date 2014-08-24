@@ -10,24 +10,11 @@ else
     FIDGET=$FIDGETDIR/$1
 fi
 
-VIM=mvim
-
-function run_fiddle {
-  $VIM -S fiddle.vim
-}
-
-if [ -e $FIDGET ]; then
-    echo "Fiddle already exists, running it..."
-    (set -e;
-      cd $FIDGET;
-      run_fiddle
-    )
-else
-    echo "Creating fiddle to $FIDGET"
-    (set -e;
-        mkdir $FIDGET;
-        cp template/* $FIDGET;
-        echo $FIDGET
-        node node_server.js $FIDGET >/dev/null 2>/dev/null &
-    )
-fi
+echo "Creating fiddle to $FIDGET"
+(set -e;
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+mkdir $FIDGET;
+cp $DIR/template/* $FIDGET;
+echo $FIDGET
+node node_server.js $FIDGET >/dev/null 2>/dev/null &
+)
