@@ -11,7 +11,7 @@ var server = require('http').createServer(httpHandler),
     server,
     socket;
 
-server.listen(8090);
+server.listen(8092);
 var assetsLocation = process.argv[2];
 
 function httpHandler(req, res) {
@@ -58,12 +58,12 @@ function httpHandler(req, res) {
 
         case 'PUT':
             if (process.platform.toLowerCase().indexOf('darwin') >= 0){
-                spawn('open', ['http://localhost:8090' + req.url]);
+                spawn('open', ['http://localhost:8092' + req.url]);
             }
             else {  // assume unix/linux
-                spawn('xdg-open', ['http://localhost:8090' + req.url]);
+                spawn('xdg-open', ['http://localhost:8092' + req.url]);
             }
-            spawn('open', ['http://localhost:8090' + req.url]);
+            spawn('open', ['http://localhost:8092' + req.url]);
             res.write('ok');
             res.end();
             return;

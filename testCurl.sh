@@ -1,1 +1,1 @@
-curl -X PUT localhost:8090/index.html
+curl -X PUT localhost:8092/index.html

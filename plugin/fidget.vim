@@ -5,31 +5,31 @@ let g:vim_fidget_loaded = 1
 " # Configuration
 
 function! s:reloadCss()
-    call system("curl -d 'action=cssReload&name=main.css' http://localhost:8090/ &>/dev/null &")
+    call system("curl -d 'action=cssReload&name=main.css' http://localhost:8092/ &>/dev/null &")
 endfu
 
 
 function! s:reload()
-    call system("curl -d 'action=reload' http://localhost:8090/ &>/dev/null &")
+    call system("curl -d 'action=reload' http://localhost:8092/ &>/dev/null &")
 endfu
 
 function! s:startDaemon()
     silent call system("vim-fidget")
     exe 'sleep 1'
-    let g:fidget_files_path = system("curl -s localhost:8090")
+    let g:fidget_files_path = system("curl -s localhost:8092")
 endfu
 
 function! s:killDaemon()
-    call system("curl -s -X DELETE http://localhost:8090/ &>/dev/null")
+    call system("curl -s -X DELETE http://localhost:8092/ &>/dev/null")
 endfu
 
 
 function! s:openBrowser()
-    call system("curl -s -X PUT http://localhost:8090/index.html &>/dev/null &")
+    call system("curl -s -X PUT http://localhost:8092/index.html &>/dev/null &")
 endfu
 
 function! s:createJsFiddle()
-    call system("curl -s -X PUT http://localhost:8090/jsFiddle.html &>/dev/null &")
+    call system("curl -s -X PUT http://localhost:8092/jsFiddle.html &>/dev/null &")
 endfunction
 
 fu! s:cleanUp()
