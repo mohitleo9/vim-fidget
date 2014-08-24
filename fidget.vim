@@ -3,19 +3,6 @@ if (exists("g:vim_fidget_loaded") && g:vim_fidget_loaded)
 endif
 let g:vim_fidget_loaded = 1
 " # Configuration
-if !exists('g:fidget_slow')
-    let g:fidget_slow = 0
-endif
-
-
-if !exists('g:fidget_autostart')
-    let g:fidget_autostart = 0
-endif
-
-if !exists('g:fidget_slow')
-    let g:fidget_slow = 1
-endif
-
 
 function! s:reloadCss()
     call system("curl -d 'action=cssReload&name=main.css' http://localhost:8090/ &>/dev/null &")
@@ -68,12 +55,6 @@ fu! s:start_vim_fidget()
     aug END
     call s:openBrowser()
 endfu
-
-if g:fidget_autostart
-    call s:start_vim_fidget()
-else
-    echo 'asdf'
-endif
 
 command! -nargs=0 VimFidget call s:start_vim_fidget()
 command! -nargs=0 VimFidgetBrowse call s:createJsFiddle()
