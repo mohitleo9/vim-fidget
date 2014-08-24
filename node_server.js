@@ -17,13 +17,10 @@ var assetsLocation = process.argv[2];
 function httpHandler(req, res) {
     switch(req.method){
         case 'GET':
-            console.log("get");
             path = url.parse(req.url).pathname;
-            console.log(path);
             if (path.indexOf('read/') > -1){
                 // this means stream the contents of the file
                 fileName = path.substring(path.indexOf('read/') + 'read/'.length);
-                console.log(fileName);
                 buf = fs.readFileSync(assetsLocation + "/" + fileName);
                 res.write(buf.toString());
                 res.end();
@@ -45,15 +42,12 @@ function httpHandler(req, res) {
             });
             req.on('end', function () {
                 postData = querystring.parse(postData);
-                console.log("post req");
 
                 if(postData.action === 'cssReload'){
-                    console.log(postData.name);
                     io.emit('cssReload', postData.name);
                 }
 
                 if(postData.action === 'reload'){
-                    console.log(postData.name);
                     io.emit('reload', 'reload');
                 }
             });
@@ -74,7 +68,6 @@ function httpHandler(req, res) {
             return;
 
         case 'READ':
-            console.log("msg");
             return;
     }
 }
