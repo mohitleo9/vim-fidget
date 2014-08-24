@@ -1,0 +1,5 @@
+vim-fidget
+
+installation instructions:
+git clone the repo and run npm install -g
+the source the fidget.vim file by :so %
