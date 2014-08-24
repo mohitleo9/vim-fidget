@@ -25,5 +25,5 @@ echo $DIR
 mkdir $FIDGET;
 cp $DIR/template/* $FIDGET;
 echo $FIDGET
-node node_server.js $FIDGET >/dev/null 2>/dev/null &
+node $DIR/node_server.js $FIDGET >/dev/null 2>/dev/null &
 )
