@@ -8,6 +8,10 @@ I am a web developer and the whole concept of trying out small chunks of program
 
 **WHERE IS MY VIM....?** this plugin answers that (it also does *live update* say whatt)
 
+## Dependencies
+
+- Python 2.6+ or 3.3+
+
 ## Installation
 
 - Manual installation:

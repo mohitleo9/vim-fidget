@@ -5,7 +5,7 @@ if [ "$FIDGETDIR" == "" ]; then
 fi
 
 if [ "$1" == "" ]; then
-    FIDGET=$FIDGETDIR/`python -c "import random; print hex(int(str(random.random())[2:10]))[2:]"`
+    FIDGET=$FIDGETDIR/`python -c "import random; print (hex(int(str(random.random())[2:10])))[2:]"`
 else
     FIDGET=$FIDGETDIR/$1
 fi
