@@ -36,6 +36,7 @@ It adds two commands
 `VimFidget` : create a fidget  and open a browser window for live preview
 
 `VimFidgetBrowse` : upload the fidget to jsfiddle
+Also the server dies when you quit index.html buffer
 
 ## Credits:
 - I took a lot of ideas from (and some code!) [vim-fiddle](https://github.com/mharju/vim-fiddle)
