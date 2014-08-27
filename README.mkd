@@ -5,19 +5,19 @@ This is a plugin (with a very creative name!) that emulates JsFiddle in vim and 
 ## Why??
 I am a web developer and the whole concept of trying out small chunks of programs makes JsFiddle really cool **BUT...**
 
-**WHERE IS MY VIM....?** this plugin answers that (it also does live update say whatt)
+**WHERE IS MY VIM....?** this plugin answers that (it also does *live update* say whatt)
 
 ## Installation
 
 - Manual installation:
-  - Copy the files to your `.vim` directory 
-  - then run npm install -g
+  1. Copy the files to your `.vim` directory 
+  2. then run `npm install -g` in the repo
 - [Pathogen](https://github.com/tpope/vim-pathogen)
   - `cd ~/.vim/bundle && git clone git://github.com/mohitleo9/vim-fidget.git && npm install -g`
 - [Vundle](https://github.com/gmarik/vundle)
   1. Add `Bundle 'mohitleo9/vim-fidget'` to .vimrc
   2. Run `:BundleInstall`
-  3. Then go to the bundle/vim-fidget and run npm install -g
+  3. Then `go to the bundle/vim-fidget and run npm install -g`
 - [NeoBundle](https://github.com/Shougo/neobundle.vim)
   1.   Add 
 
@@ -32,8 +32,13 @@ I am a web developer and the whole concept of trying out small chunks of program
 
 ## How to use ??
 It adds two commands 
-`VimFidget` : create a fidget  and opens a browser window
+
+`VimFidget` : create a fidget  and open a browser window for live preview
+
 `VimFidgetBrowse` : upload the fidget to jsfiddle
 
+## Credits:
+- I took a lot of ideas from (and some code!) [vim-fiddle](https://github.com/mharju/vim-fiddle)
+- Also for using nodeJs and other stuff I looked(and took some code) at [suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
 
-### That's it for today Folks
+## That's it for today Folks!!!
