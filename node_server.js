@@ -63,7 +63,6 @@ function httpHandler(req, res) {
             else {  // assume unix/linux
                 spawn('xdg-open', ['http://localhost:8092' + req.url]);
             }
-            spawn('open', ['http://localhost:8092' + req.url]);
             res.write('ok');
             res.end();
             return;
