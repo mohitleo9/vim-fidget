@@ -1,0 +1,39 @@
+# vim-fidget - JsFiddle for Vim
+## What??
+This is a plugin (with a very creative name!) that emulates JsFiddle in vim and lets you post it to actual jsfiddle.com so that it can be shared.
+
+## Why??
+I am a web developer and the whole concept of trying out small chunks of programs makes JsFiddle really cool **BUT...**
+
+**WHERE IS MY VIM....?** this plugin answers that
+
+## Installation
+
+- Manual installation:
+  - Copy the files to your `.vim` directory 
+  - then run npm install -g
+- [Pathogen](https://github.com/tpope/vim-pathogen)
+  - `cd ~/.vim/bundle && git clone git://github.com/mohitleo9/vim-fidget.git && npm install -g`
+- [Vundle](https://github.com/gmarik/vundle)
+  1. Add `Bundle 'mohitleo9/vim-fidget'` to .vimrc
+  2. Run `:BundleInstall`
+  3. Then go to the bundle/vim-fidget and run npm install -g
+- [NeoBundle](https://github.com/Shougo/neobundle.vim)
+  1.   Add ```
+        NeoBundle 'mohitleo9/vim-fiddle',{
+            \ 'build' : {
+            \    'unix' : 'npm install -g',
+            \    'mac' : 'npm install -g',
+            \ },
+        \} 
+        ```
+        to .vimrc
+  2. Run `:NeoBundleInstall`
+
+## How to use ??
+It adds two commands 
+`VimFidget` : create a fidget 
+`VimFidgetBrowse` : upload the fidget to jsfiddle
+
+
+### That's it for today Folks
