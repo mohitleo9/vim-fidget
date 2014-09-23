@@ -54,7 +54,10 @@ fu! s:start_vim_fidget()
         au BufWritePost *main.css call s:reloadCss()
         au BufWritePost *main.js call s:reload()
         au BufWritePost *index.html call s:reload()
-        au BufDelete *index.html call s:cleanUp()
+        au BufDelete,BufUnload,BufUnload  *index.html call s:cleanUp()
+        au BufDelete,BufUnload,BufUnload  *main.css call s:cleanUp()
+        au BufDelete,BufUnload,BufUnload,BufWipeout  *main.js call s:cleanUp()
+        au VimLeavePre * call s:cleanUp()
     aug END
     call s:openBrowser()
 endfu
