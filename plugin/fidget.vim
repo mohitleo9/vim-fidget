@@ -14,7 +14,10 @@ function! s:reload()
 endfu
 
 function! s:startDaemon()
-    silent call system("vim-fidget")
+    let s:path = expand('<sfile>:p:h')
+    let s:fidget_path = s:path.'/fidget.sh'
+    silent call system(s:fidget_path)
+    " This is necessary for stuff to take place :)
     exe 'sleep 1'
     let g:fidget_files_path = system("curl -s localhost:8092")
 endfu
