@@ -12,12 +12,12 @@ endfu
 function! s:reload()
     call system("curl -d 'action=reload' http://localhost:8092/ &>/dev/null &")
 endfu
-
+" for some reason putting this inside a function does not work
+let s:path = expand('<sfile>:p:h:h')
+" This is necessary for stuff to take place :)
+let s:fidget_path = s:path.'/fidget.sh'
 function! s:startDaemon()
-    let s:path = expand('<sfile>:p:h')
-    let s:fidget_path = s:path.'/fidget.sh'
     silent call system(s:fidget_path)
-    " This is necessary for stuff to take place :)
     exe 'sleep 1'
     let g:fidget_files_path = system("curl -s localhost:8092")
 endfu
