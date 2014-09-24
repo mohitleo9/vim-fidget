@@ -38,8 +38,37 @@ It adds two commands
 
 `VimFidgetBrowse` : upload the fidget to jsfiddle
 Also the server dies when you quit index.html buffer
-Also you can change the template files in bundle/vim-fidget/template to include
-stuff that you frequently use
+
+# Amending the default templates
+You can change the template files in bundle/vim-fidget/template to include
+stuff that you frequently use. For example, if you work locally and would like a base Fidget that includes jQuery, Modernizr and a meta tag for correct display of HTML on mobile devices you could:
+
+- download jQuery and Modernizr to your template folder
+- amend the `index.html` file as follows:
+
+````html
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vim Fidget</title>
+		<script src="socket.io.js"></script>
+		<script src="socket_client.js"></script>
+		<script src="jquery-2.1.1.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="main.css" type="text/css" media="all" />
+		<script src="modernizr.dev.2.8.3.js"></script>
+	</head>
+	<body>
+		<div class="thing">
+
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>
+````
+
+You can also alter the default CSS (main.css) and JS (main.js) in the same manner.
 
 ## Credits:
 - I took a lot of ideas from (and some code!) [vim-fiddle](https://github.com/mharju/vim-fiddle)
