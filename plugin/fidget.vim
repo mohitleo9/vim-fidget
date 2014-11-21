@@ -64,3 +64,4 @@ endfu
 
 command! -nargs=0 VimFidget call s:start_vim_fidget()
 command! -nargs=0 VimFidgetBrowse call s:createJsFiddle()
+command! -nargs=0 VimFidgetKillServer call s:cleanUp()
