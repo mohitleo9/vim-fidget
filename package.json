@@ -1,6 +1,6 @@
 {
   "name": "vim-fidget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "node_server.js",
   "bin": {
     "vim-fidget": "./fidget.sh"
