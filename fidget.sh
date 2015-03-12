@@ -11,6 +11,7 @@ else
 fi
 
 echo "Creating fiddle to $FIDGET"
+# set -e makes sure that we exit on failure
 (set -e;
 # get the actual file path avoiding symlinks
 SOURCE="${BASH_SOURCE[0]}"
