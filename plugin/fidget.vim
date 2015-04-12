@@ -18,7 +18,10 @@ let s:path = expand('<sfile>:p:h:h')
 let s:fidget_path = s:path.'/fidget.sh'
 function! s:startDaemon()
     silent call system(s:fidget_path)
-    exe 'sleep 1'
+    " this is to wait for the server to startup
+    while empty(system("curl -s localhost:8092"))
+      exe 'sleep 100m'
+    endwhile
     let g:fidget_files_path = system("curl -s localhost:8092")
 endfu
 
