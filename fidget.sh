@@ -5,7 +5,7 @@ if [ "$FIDGETDIR" == "" ]; then
 fi
 
 if [ "$1" == "" ]; then
-    FIDGET=$FIDGETDIR/`python -c "import random; print hex(int(str(random.random())[2:10]))[2:]"`
+    FIDGET=$FIDGETDIR/`node -e "console.log(new Buffer(Math.random().toString(36).slice(2), 'utf8').toString('hex').slice(0, 7))"`
 else
     FIDGET=$FIDGETDIR/$1
 fi
